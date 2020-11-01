@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 16:11:07 by tmelina           #+#    #+#             */
-/*   Updated: 2020/10/31 18:12:23 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/01 18:27:33 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,4 @@ void	*ft_memset(void *s, int c, size_t n)
 		i++;
 	}
 	return (s);
-}
-
-int		main()
-{
-	// char str[] = "almost every programmer should know memset!";
-	char str[] = "noanimehere";
-	// memset (str,'-',25);
-	// puts (str);
-	ft_memset (str,'A', 55);
-	puts (str);
-	return 0;
 }
