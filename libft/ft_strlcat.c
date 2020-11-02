@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:02:47 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/01 16:59:10 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/02 12:28:37 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include "libft.h"
 
-int	ft_strlcat(char *dest, const char *src,  size_t size)
+size_t	ft_strlcat(char *dest, const char *src,  size_t size)
 {
 	unsigned int ix;
 	unsigned int iy;
