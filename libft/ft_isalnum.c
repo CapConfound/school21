@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 16:10:40 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/04 13:08:16 by tmelina          ###   ########.fr       */
+/*   Created: 2020/11/04 13:33:50 by tmelina           #+#    #+#             */
+/*   Updated: 2020/11/04 14:02:00 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+#include <unistd.h>
 
-void	*ft_bzero(void *s, size_t n)
+int	ft_isalnum(int c)
 {
-	unsigned char *sequence;
-	unsigned int i;
-
-	sequence = s;
-	i = 0;
-	while (i < n)
-	{
-		*sequence++ = 0;
-		i++;
-	}
-	return (s);
+	if (ft_isalpha(c) || ft_isdigit(c)) return (1);
+	return (0);
 }
+// int main ()
+// {
+// 	char x = 'a';
+// 	printf("%d", isalnum(x));
+// }

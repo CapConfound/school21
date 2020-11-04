@@ -13,5 +13,7 @@ clean:
 			
 fclean:		clean
 			rm -f ${NAME}
-	
+
+c:	fclean
+
 re:		fclean all

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:01:47 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/02 15:55:30 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/04 14:00:04 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,38 @@
 
 size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-    unsigned int ix;
+    size_t ix;
 
-    ix = 0;
-    if (size > 0)
+    ix = 1;
+    if (size > 1)
     {
-        while (ix < size && src[ix] != '\0')
+        while (ix < size - 1)// && src[ix] != '\0')
         {
-            dest[ix] = src[ix];
+            if (*src != '\0')
+                *dest++ = *src++;
+            else
+                break ;
             ix++;
         }
-        dest[ix] = '\0';
-        return ((size_t)strlen(dest));
+        *dest = '\0';
+        return (ix);
     }
-    return (size + strlen(src));
+    return (size + ft_strlen(src));
 }
-int main()
-{
-    char dest[] = "there is no stars in the sky";
-    char dest1[] = "there is no stars in the sky";
-    
+// int main()
+// {
+//     char dest[] = "there is no stars in the sky";
+//     char dest1[] = "there is no stars in the sky";
+//     int ret1 = 0;
+//     int ret2 = 0;
+
+// 	char src[] = "help me!";
 
 
-	char src[] = "help me!";
-
-
-	strlcpy (dest, src, strlen(dest));
-    printf("orig - ");puts(dest);
-    ft_strlcpy (dest1, src, strlen(dest));
-    printf("mine - ");puts(dest1);
-}
+// 	ret1 = strlcpy (dest, src, strlen(dest));
+//     printf("len - %d orig - ", ret1);
+//     puts(dest);
+//     ret2 = ft_strlcpy (dest1, src, strlen(dest));
+//     printf("len - %d mine - ", ret2);
+//     puts(dest1);
+// }

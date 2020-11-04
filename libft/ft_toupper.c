@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 16:10:40 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/04 13:08:16 by tmelina          ###   ########.fr       */
+/*   Created: 2020/11/04 14:11:45 by tmelina           #+#    #+#             */
+/*   Updated: 2020/11/04 14:16:22 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
+#include <unistd.h>
 
-void	*ft_bzero(void *s, size_t n)
+int	ft_toupper(int c)
 {
-	unsigned char *sequence;
-	unsigned int i;
-
-	sequence = s;
-	i = 0;
-	while (i < n)
-	{
-		*sequence++ = 0;
-		i++;
-	}
-	return (s);
+	if (c <= 122 && c >= 97) c -= 32;
+    return (c);
 }

@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 16:10:40 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/04 13:08:16 by tmelina          ###   ########.fr       */
+/*   Created: 2020/11/04 19:07:44 by tmelina           #+#    #+#             */
+/*   Updated: 2020/11/04 20:36:33 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-void	*ft_bzero(void *s, size_t n)
+char    *ft_strrchr(const char *str, int c)
 {
-	unsigned char *sequence;
-	unsigned int i;
+    char *p;
+    int i;
+    char *buf;
 
-	sequence = s;
-	i = 0;
-	while (i < n)
-	{
-		*sequence++ = 0;
-		i++;
-	}
-	return (s);
+    i = 0;
+    p = (char*)str;
+    if (*p == '\0') return (p);
+    while (*p != '\0')
+    {
+        if (*p == c) buf = p;
+        p++;
+    }
+        
+    return (buf);
+}
+int main ()
+{
+    printf("%s", ft_strrchr("abbbbbbb", 'a'));
 }

@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 16:10:40 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/04 13:08:16 by tmelina          ###   ########.fr       */
+/*   Created: 2020/11/04 13:41:06 by tmelina           #+#    #+#             */
+/*   Updated: 2020/11/04 14:10:13 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
+#include <unistd.h>
 
-void	*ft_bzero(void *s, size_t n)
+int	ft_isalpha(int c)
 {
-	unsigned char *sequence;
-	unsigned int i;
-
-	sequence = s;
-	i = 0;
-	while (i < n)
-	{
-		*sequence++ = 0;
-		i++;
-	}
-	return (s);
+	if (c <= 90 && c >= 65) return (1);
+	if (c <= 122 && c >= 97) return (1);
+	return (0);
 }
