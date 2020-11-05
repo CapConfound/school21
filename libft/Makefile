@@ -8,6 +8,10 @@ ${NAME}:
 
 all:	${NAME}
 
+so:		
+		gcc -fPIC -c *.c $<
+		gcc -shared -o libft.so *.o
+
 clean:
 			rm -f *.o
 			
