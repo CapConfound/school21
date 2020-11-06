@@ -1,6 +1,0 @@
-.DS_Store
-.gitignore
-.vscode/settings.json
-*.o
-*.out
-*.a
