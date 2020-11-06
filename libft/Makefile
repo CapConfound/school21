@@ -8,10 +8,6 @@ ${NAME}:
 
 all:	${NAME}
 
-so:		
-		gcc -fPIC -c *.c $<
-		gcc -shared -o libft.so *.o
-
 clean:
 			rm -f *.o
 			
@@ -20,4 +16,4 @@ fclean:		clean
 
 c:	fclean
 
-re:		fclean all
+re:		fclean ${NAME}
