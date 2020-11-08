@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 19:07:44 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/07 23:39:04 by tmelina          ###   ########.fr       */
+/*   Created: 2020/11/07 22:52:28 by tmelina           #+#    #+#             */
+/*   Updated: 2020/11/07 23:37:59 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strrchr(const char *str, int c)
+char	*ft_strdup(char *str)
 {
-	unsigned char *p;
-	unsigned char *buf;
+	char	*str1;
 
-	buf = 0;
-	p = (unsigned char*)str;
-	if (c == '\0') return ("");
-	while ((unsigned char)*p != '\0')
-	{
-		if ((unsigned char)*p == c) buf = p;
-		p++;
-	}
-	return ((char *)buf);
+	str1 = NULL;
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str1, str, ft_strlen(str));
+	return (str1);
 }
-// int main ()
+
+// int main()
 // {
-// 	puts(ft_strrchr("", '\0'));
-	
+// 	char	str[] = "lorem ipsum dolor sit amet";
+// 	puts(ft_strdup(str));
+// 	puts(strdup(str));
 // }

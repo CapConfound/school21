@@ -2,7 +2,7 @@ NAME	= libft.a
 SRCS	= *.c
 FLAGS	= -c -g -Werror -Wextra -Wall
 
-${NAME}:
+$(NAME):
 		gcc ${FLAGS} ${SRCS}
 		ar rc ${NAME} *.o
 
@@ -16,4 +16,6 @@ fclean:		clean
 
 c:	fclean
 
-re:		fclean ${NAME}
+re:		fclean all
+
+.PHONY: all clean fclean re

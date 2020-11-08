@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:02:47 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/02 12:28:37 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/08 19:56:51 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,39 @@
 
 size_t	ft_strlcat(char *dest, const char *src,  size_t size)
 {
-	unsigned int ix;
-	unsigned int iy;
+	char *ldest;
+	char *lsrc;
+	size_t ix;
+	size_t iy;
 
-	ix = 0;
-	iy = 0;
-	if (size > 0)
-	{
-		while (dest[ix] != '\0')
-			ix++;
-		while (src[iy] != '\0')
-		{
-			dest[ix] = src[iy];
-			ix++;
-			iy++;
-		}
-		dest[ix] = '\0';
-	}
-	return(ix - 1);
+	ldest = dest;
+	lsrc = src;
+	ix = size;
+	while (ldest != '\0' && ix-- > 0)
+		ldest++;
+	iy = ldest - dest;
+	ix -= iy;
+	if (ix == 0)
+		return (iy + ft_strlen(src));
+	while (*lsrc != '\0')
+		if (ix-- != 1)
+			*ldest++ = *lsrc;
+		src++;
+	*dest = '\0';
+	return(ldest + (lsrc - src));
 }
 
-// int	main()
-// {
-// 	char buf[] = "ksss1";
-// 	char p[21];
-// 	strlcat(p, buf, 3);
-// 	printf("%s", p);
-// 	return 0;
-// }
+int	main()
+{
+	char *buf= "the cake is a lie !\0I'm hidden lol\r\n";
+	char p1[40]= "there is no stars in the sky";
+	char p2[40]= "there is no stars in the sky";
+	size_t s1, s2;
+
+
+	s1 = strlcat(p1, buf, 0);
+	printf("%zu:%s\n", s1, p1);
+	s2 = ft_strlcat(p2, buf, 0);
+	printf("%zu:%s\n", s2, p2);
+	return 0;
+}
