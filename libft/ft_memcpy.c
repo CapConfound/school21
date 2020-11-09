@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 16:33:55 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/09 16:49:39 by tmelina          ###   ########.fr       */
+/*   Created: 2020/11/09 13:38:52 by tmelina           #+#    #+#             */
+/*   Updated: 2020/11/09 13:41:14 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void*	ft_calloc(size_t num, size_t size)
+void*	ft_memspy(void* dest, const void* src, size_t size)
 {
-	int *arr;
-
-	arr = malloc(size * num);
-	if (!arr || !size)
-		return (NULL);
-	return (arr);
+	
 }
