@@ -6,7 +6,7 @@
 /*   By: seogroup <seogroup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 12:11:02 by seogroup          #+#    #+#             */
-/*   Updated: 2020/11/09 12:47:40 by seogroup         ###   ########.fr       */
+/*   Updated: 2020/11/09 12:52:05 by seogroup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int		isnegative(int neg)
 {
-	if (neg % 2 == 1)
+	if (neg == 1)
 		return (-1);
-	return (1);
+	if (neg == 0)
+		return (1);
+	return (0);
 }
 
 int	ft_atoi(const char *str)
@@ -43,7 +45,7 @@ int	ft_atoi(const char *str)
 }
 
 int main(){
-	char *smth = "-023fds21";
+	char *smth = "023fds21";
 	printf("%d\n", atoi(smth));
 	printf("%d\n", ft_atoi(smth));
 }
