@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:02:47 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/02 12:28:37 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/09 15:10:01 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,20 @@ size_t	ft_strlcat(char *dest, const char *src,  size_t size)
 	pointer = ft_get_remsize(dest, size);
 	pointer = size - pointer;
 	while (src[i] != '\0')
-		dest[pointer++] = s[i++];
-	return (pointer);
+    {
+		dest[pointer++] = s[i];
+		i++;
+	}
+    dest[pointer] = '\0';
+    return (pointer);
 }
 
 int	main()
 {
-	char src[] = "ksss1";
-	char dest[21] = "adsf";
+	char src[] = "ksss1\0sakld";
+	char dest[21] = "ireallysuckatthis";
 	// char dest1[21] = "adsf";
-	int x = ft_strlcat(dest, src, 21);
+	int x = ft_strlcat(dest, src, 41);
 	// int x1 = strlcat(dest1, src, 21);
 
 	printf("%d:%s\n", x, dest);
