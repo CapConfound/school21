@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:38:33 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/09 15:34:06 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/10 11:18:18 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_atoi(const char *str)
 {
-    unsigned long int res;
+    long int res;
     int i;
     int neg;
 
@@ -37,15 +37,15 @@ int	ft_atoi(const char *str)
                 return (0);
             return (res * neg);
         }
-        if (res > 2147483647 || res < -2147483647)
+        if (res > 2147483648 || res < -2147483647)
             return (-1);
         return (0);
     }
     return (res * neg);
 }
 
-int main(){
-    char *smth = "-999999999999999";
-    printf("%d\n", atoi(smth));
-    printf("%d\n", ft_atoi(smth));
-}
+// int main(){
+//     char *smth = "-999999999999999";
+//     printf("%d\n", atoi(smth));
+//     printf("%d\n", ft_atoi(smth));
+// }

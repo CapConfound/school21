@@ -6,13 +6,12 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:02:47 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/09 15:10:01 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/10 11:19:40 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
-#include <bsd/string.h>
 #include <unistd.h>
 #include "libft.h"
 
@@ -51,16 +50,16 @@ size_t	ft_strlcat(char *dest, const char *src,  size_t size)
     return (pointer);
 }
 
-int	main()
-{
-	char src[] = "ksss1\0sakld";
-	char dest[21] = "ireallysuckatthis";
-	// char dest1[21] = "adsf";
-	int x = ft_strlcat(dest, src, 41);
-	// int x1 = strlcat(dest1, src, 21);
+// int	main()
+// {
+// 	char src[] = "ksss1\0sakld";
+// 	char dest[21] = "ireallysuckatthis";
+// 	// char dest1[21] = "adsf";
+// 	int x = ft_strlcat(dest, src, 41);
+// 	// int x1 = strlcat(dest1, src, 21);
 
-	printf("%d:%s\n", x, dest);
-	// printf("%d:%s\n", x1, dest1);
+// 	printf("%d:%s\n", x, dest);
+// 	// printf("%d:%s\n", x1, dest1);
 
-	return 0;
-}
+// 	return 0;
+// }
