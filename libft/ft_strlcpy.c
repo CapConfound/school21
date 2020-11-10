@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:01:47 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/08 16:30:05 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/10 19:03:04 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	ft_strlcpy(char *dest, char *src, size_t size)
 		dest[i] = src[i];
 	}
 	dest[i] = '\0';
-	if (ft_strlen(src) > (int)size)
+	if (ft_strlen(src) > size)
 		while (src[i])
 			i++;
 	return (i);

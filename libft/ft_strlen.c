@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:49:15 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/01 17:02:09 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/10 18:46:02 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include <unistd.h>
 #include "libft.h"
 
-int		ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
-	int chars;
+	size_t chars;
 
 	chars = 0;
 	while (str[chars] != '\0')

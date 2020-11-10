@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:02:47 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/10 17:54:57 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/10 20:36:29 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include <unistd.h>
 #include "libft.h"
 
-size_t ft_get_remsize (char *arr, size_t buffsize)
+size_t	ft_get_remsize(char *arr, size_t buffsize)
 {
-	char *s;
-	size_t remsize;
+	char	*s;
+	size_t	remsize;
 
 	s = (char *)arr;
 	remsize = buffsize;
@@ -27,33 +27,35 @@ size_t ft_get_remsize (char *arr, size_t buffsize)
 		remsize--;
 	}
 	return (remsize);
-
 }
 
-size_t	ft_strlcat(char *dest, const char *src,  size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	char	*s;
-	size_t pointer; // сколько места есть в буфере
-	int i;
+	size_t	pointer;
+	int		i;
+	size_t	res;
 
-	i = 0;
 	s = (char *)src;
-	puts(dest);
+	if (ft_strlen(dest) >= size)
+		return (size + ft_strlen(s));
+	res = ft_strlen(s) + ft_strlen(dest);
+	if (size == 0)
+		return (res);
+	i = -1;
+	s = (char *)src;
 	pointer = ft_get_remsize(dest, size);
 	pointer = size - pointer;
-	while (src[i] != '\0')
-    {
+	while (src[++i] != '\0' && pointer < size - 1)
 		dest[pointer++] = s[i];
-		i++;
-	}
-    dest[pointer] = '\0';
-    return (pointer);
+	dest[pointer] = '\0';
+	return (res);
 }
 
 // int	main()
 // {
-// 	char src[] = "ksssg1\0sakld";
-// 	char dest[31] = "ireallysuckatthis";
+// 	char src[] = "the cake is a lie !\0I'm hidden lol\r\n";
+// 	char dest[101] = "there is no stars in the sky";
 // 	// char dest1[21] = "adsf";
 // 	int x = ft_strlcat(dest, src, 41);
 // 	// int x1 = strlcat(dest1, src, 21);
