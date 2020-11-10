@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:38:33 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/10 13:45:56 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/10 17:54:42 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,17 @@ int	ft_atoi(const char *str)
 	j = 0;
 	i = 0;
 	neg = 1;
-	while (str[i] != '\0' || ((str[i] >= 48 && str[i] <= 57) || (str[i] == '-')))
+	while (str[i] != '\0' && !((str[i] >= 48 && str[i] <= 57) || (str[i] == '-')))
 		i++;
 	if (j == 0)
 	{
 		if (str[i] == '-')
 			neg = -1;
 		else
+		{
 			neg = 1;
+			i--;
+		}
 		j = neg == -1 ? 1 : 0;
 	}
 	while (str[++i] >= 48 && str[i] <= 57)
@@ -52,8 +55,8 @@ int	ft_atoi(const char *str)
 	return (return_atoi(res, neg));
 }
 
-int main(){
-	char *smth = "2147483647";
-	printf("%d\n", atoi(smth));
-	printf("%d\n", ft_atoi(smth));
-}
+// int main(){
+// 	char *smth = "647";
+// 	printf("%d\n", atoi(smth));
+// 	printf("%d\n", ft_atoi(smth));
+// }
