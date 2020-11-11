@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:38:33 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/11 12:37:10 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/11 21:49:29 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,47 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	return_atoi(int res, int neg)
+int	return_atoi(long int res, int neg)
 {
-	if (res < -2147483648 || res > 2147483647)
-		return (-1);
-	return (res * neg);
+	long int out;
+
+	out = res * neg;
+	if (out > 2147483647)
+		return (0);
+	if (out < -2147483648)
+		return (0);
+	return (out);
 }
 
 int	ft_atoi(const char *str)
 {
-	int res;
+	long int res;
 	int i;
 	int neg;
-	int j;
 
 	res = 0;
-	j = 0;
 	i = 0;
 	neg = 1;
-	while (str[i] != '\0' && !((str[i] >= 48 && str[i] <= 57) || (str[i] == '-')))
+	while (str[i] != '\0' && !(ft_isdigit(str[i]) || (str[i] == '-') || (str[i] == '\e')))
 		i++;
-	if (j == 0)
+	if (str[i] == '-')
 	{
-		if (str[i] == '-')
-			neg = -1;
-		else
-		{
-			neg = 1;
-			i--;
-		}
-		j = neg == -1 ? 1 : 0;
+		neg = -1;
+		i++;
 	}
-	while (str[++i] >= 48 && str[i] <= 57)
+	
+	while (ft_isdigit(str[i]))
 	{
 		res = res * 10 + (str[i] - '0');
-		if (str[i] < 48 || str[i] > 57)
+		if (!ft_isdigit(str[i + 1]))
 			return (return_atoi(res, neg));
+		i++;
 	}
 	return (return_atoi(res, neg));
 }
 
-// int main(){
-// 	char *smth = "647";
-// 	printf("%d\n", atoi(smth));
-// 	printf("%d\n", ft_atoi(smth));
-// }
+int main(){
+	char *smth =  "99999999999999999999999999";
+	printf("%d\n", atoi(smth));
+	printf("%d\n", ft_atoi(smth));
+}
