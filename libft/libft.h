@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:47:53 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/10 18:45:47 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/11 12:44:45 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_bzero(void *s, size_t n);
-void*	ft_memcpy(void* dest, const void* src, size_t size);
+void	*ft_memcpy(void* dest, const void* src, size_t size);
+void	*ft_memccpy(void *dest, const void *src, int ch, size_t count);
 
 size_t	ft_strlen(char *str);
 

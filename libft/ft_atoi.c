@@ -6,14 +6,13 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:38:33 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/10 17:54:42 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/11 12:37:10 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 
 int	return_atoi(int res, int neg)
 {
