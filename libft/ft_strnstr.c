@@ -6,13 +6,16 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 21:28:46 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/08 16:31:50 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/15 23:15:47 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// char    *ft_strnstr(const char *big, const char *little, size_t len)
+char    *ft_strnstr(const char *big, const char *little, size_t len)
+{
+    
+}
 // {
 //     unsigned char *buf;
 

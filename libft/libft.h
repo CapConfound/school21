@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:47:53 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/14 19:18:15 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/15 21:20:42 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	*ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void* dest, const void* src, size_t size);
 void	*ft_memccpy(void *dest, const void *src, int ch, size_t count);
 void    *ft_memmove(void *str1, const void *str2, size_t n);
+void	*ft_memchr(const void *str, int ch, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 size_t	ft_strlen(char *str);
 
