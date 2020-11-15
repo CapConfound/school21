@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:38:33 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/11 21:49:29 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/11 22:00:26 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	ft_atoi(const char *str)
 	return (return_atoi(res, neg));
 }
 
-int main(){
-	char *smth =  "99999999999999999999999999";
-	printf("%d\n", atoi(smth));
-	printf("%d\n", ft_atoi(smth));
-}
+// int main(){
+// 	char *smth =  "99999999999999999999999999";
+// 	printf("%d\n", atoi(smth));
+// 	printf("%d\n", ft_atoi(smth));
+// }
