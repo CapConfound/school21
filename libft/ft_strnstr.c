@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 21:28:46 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/15 23:15:47 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/16 13:28:12 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,33 @@
 
 char    *ft_strnstr(const char *big, const char *little, size_t len)
 {
-    
+    char *hay;
+    char *needle;
+    size_t needle_len;
+    size_t i;
+    size_t j;
+
+    if (*little == 0)
+        return ((char *)big);
+    hay = (char *)big;
+    needle = (char *)little;
+    needle_len = ft_strlen(needle);
+    j = 0;
+    if (ft_strlen(hay) < needle_len)
+        return (NULL);
+    while (j < len)
+    {
+        i = -1;
+        while (hay[j] == needle[++i])
+        {
+            if (i == needle_len - 1)
+                return ((char *)&hay[j - i]);
+            j++;
+        }
+        j++;
+    }
+    return (NULL);
 }
-// {
-//     unsigned char *buf;
-
-//     buf = (unsigned char *)little;
-//     while (big < (big + len))
-//     {
-//         buf = (unsigned char *)little;
-//         while (buf < (buf + ft_strlen((char *)little)))
-//         {
-//             if (*buf == *little)
-//                 {
-//                     buf++;
-//                     little++;
-//                 }
-//             else
-//                 break;
-//         }
-//         return ((char *)buf);
-//     }
-//     return (NULL);
-// }
-
-// char    *ft_strnstr(const char *big, const char *little, size_t len)
-// {
-// 	int blen;
-// 	int llen;
-// 	int i;
-// 	int j;
-
-// 	blen = ft_strlen(big);
-// 	llen = ft_strlen(little);
-
-// 	if (!little)
-// 		return (big);
-// 	i = -1;
-// 	while (i < len)
-// 	{
-// 		j = -1;
-// 		while (big[++i] != little[++j])
-// 			if (j == llen - 1)
-// 				return (little);
-// 	}
-
-
-// 	return (NULL); // если строка не найдена
-// }
-
-// int main()
-// {
-//     printf("%s\n", ft_strnstr("absklsadl\0", "ls\0", 10));
-//     return 0;
+// int main(){
+//     puts(ft_strnstr("fake", ((void *)0), 3));
 // }
