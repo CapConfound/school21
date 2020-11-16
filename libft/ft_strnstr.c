@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 21:28:46 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/16 13:28:12 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/16 13:29:05 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,3 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
     }
     return (NULL);
 }
-// int main(){
-//     puts(ft_strnstr("fake", ((void *)0), 3));
-// }
