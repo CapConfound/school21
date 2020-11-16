@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 21:08:22 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/15 22:11:17 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/16 13:33:04 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int		my_strncmp(unsigned char *s1, unsigned char *s2, size_t n)
 	unsigned char c2;
 
 	ix = 0;
-	while ((s1[ix] != '\0' || s2[ix] != '\0') && (ix < n))
+	while ((s1[ix]|| s2[ix]) && (ix < n))
 	{
 		c2 = (unsigned char)s2[ix];
 		c1 = (unsigned char)s1[ix];
