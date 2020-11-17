@@ -1,0 +1,31 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_split.cbroken                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/11/17 16:24:43 by tmelina           #+#    #+#              #
+#    Updated: 2020/11/17 18:38:28 by tmelina          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+// #include "libft.h"
+
+// static int	countwords(char *c, char div)
+// {
+// 	size_t	i;
+// 	int		words;
+
+// 	i = 0;
+// 	words = 1;
+// 	while (c)
+// 	{
+// 		if (ft_isprint(c[i])
+// 	}
+// 	return (words);
+// }
+// char		**ft_split(char const *s, char c)
+// {
+	
+// }

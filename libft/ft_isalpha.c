@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 13:41:06 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/04 14:10:13 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/17 15:23:15 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 int	ft_isalpha(int c)
 {
-	if (c <= 90 && c >= 65) return (1);
-	if (c <= 122 && c >= 97) return (1);
+	if (c <= 90 && c >= 65)
+		return (1);
+	if (c <= 122 && c >= 97)
+		return (1);
 	return (0);
 }

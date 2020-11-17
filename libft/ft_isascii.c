@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 14:03:51 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/04 14:05:04 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/17 15:23:24 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127) return (1);
+	if (c >= 0 && c <= 127)
+		return (1);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 16:11:07 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/01 18:27:33 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/17 15:26:27 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char *sequence;
-	unsigned int ch;
-	unsigned int i;
+	unsigned char	*sequence;
+	unsigned int	ch;
+	unsigned int	i;
 
 	ch = c;
 	sequence = s;

@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:49:15 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/10 18:46:02 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/17 15:29:33 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ size_t	ft_strlen(char *str)
 
 	chars = 0;
 	while (str[chars] != '\0')
-	{
 		chars++;
-	}
 	return (chars);
 }

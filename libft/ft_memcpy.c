@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:38:52 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/15 13:11:50 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/17 15:46:12 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void*	ft_memcpy(void* dest, const void* src, size_t size)
+void	*ft_memcpy(void *dest, const void *src, size_t size)
 {
-	unsigned char *s;
-	unsigned char *d;
-	size_t i;
+	unsigned char	*s;
+	unsigned char	*d;
+	size_t			i;
 
 	s = (unsigned char *)src;
 	d = dest;

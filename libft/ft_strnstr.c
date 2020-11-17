@@ -3,41 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 21:28:46 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/16 13:29:05 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/17 15:51:54 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-    char *hay;
-    char *needle;
-    size_t needle_len;
-    size_t i;
-    size_t j;
+	char	*hay;
+	char	*needle;
+	size_t	i;
+	size_t	j;
 
-    if (*little == 0)
-        return ((char *)big);
-    hay = (char *)big;
-    needle = (char *)little;
-    needle_len = ft_strlen(needle);
-    j = 0;
-    if (ft_strlen(hay) < needle_len)
-        return (NULL);
-    while (j < len)
-    {
-        i = -1;
-        while (hay[j] == needle[++i])
-        {
-            if (i == needle_len - 1)
-                return ((char *)&hay[j - i]);
-            j++;
-        }
-        j++;
-    }
-    return (NULL);
+	if (*little == 0)
+		return ((char *)big);
+	hay = (char *)big;
+	needle = (char *)little;
+	j = 0;
+	if (ft_strlen(hay) < ft_strlen(needle))
+		return (NULL);
+	while (j < len)
+	{
+		i = -1;
+		while (hay[j] == needle[++i])
+		{
+			if (i == ft_strlen(needle) - 1)
+				return ((char *)&hay[j - i]);
+			j++;
+		}
+		j++;
+	}
+	return (NULL);
 }

@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:38:33 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/16 18:19:06 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/17 15:47:28 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-int	return_atoi(long int res, int neg)
+int		return_atoi(long int res, int neg)
 {
 	long int out;
 
@@ -26,11 +24,11 @@ int	return_atoi(long int res, int neg)
 	return (out);
 }
 
-int	ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
-	long int res;
-	int i;
-	int neg;
+	long int	res;
+	int			i;
+	int			neg;
 
 	res = 0;
 	i = 0;
@@ -42,7 +40,7 @@ int	ft_atoi(const char *str)
 		if (str[i] == '-')
 			neg = -1;
 		i++;
-	}	
+	}
 	while (ft_isdigit(str[i]))
 	{
 		res = res * 10 + (str[i] - '0');
@@ -53,8 +51,8 @@ int	ft_atoi(const char *str)
 	return (return_atoi(res, neg));
 }
 
-int main(){
-	char *smth =  "\t\n\r\v\f  469 \n";
-	printf("%d\n", atoi(smth));
-	printf("%d\n", ft_atoi(smth));
-}
+// int main(){
+// 	char *smth =  "\t\n\r\v\f  469 \n";
+// 	printf("%d\n", atoi(smth));
+// 	printf("%d\n", ft_atoi(smth));
+// }

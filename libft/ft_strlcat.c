@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:02:47 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/10 20:36:29 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/17 15:29:06 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,3 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	dest[pointer] = '\0';
 	return (res);
 }
-
-// int	main()
-// {
-// 	char src[] = "the cake is a lie !\0I'm hidden lol\r\n";
-// 	char dest[101] = "there is no stars in the sky";
-// 	// char dest1[21] = "adsf";
-// 	int x = ft_strlcat(dest, src, 41);
-// 	// int x1 = strlcat(dest1, src, 21);
-
-// 	printf("%d:%s\n", x, dest);
-// 	// printf("%d:%s\n", x1, dest1);
-
-// 	return 0;
-// }
