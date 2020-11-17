@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:47:53 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/15 21:20:42 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/17 13:00:57 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,9 @@ char    *ft_strnstr(const char *big, const char *little, size_t len);
 int     ft_atoi(const char *str);
 void*	ft_calloc(size_t num, size_t size);
 char	*ft_strdup(char *str);
+
+char    *ft_substr(char const *s, unsigned int start, size_t len);
+char    *ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif
