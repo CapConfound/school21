@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:47:53 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/19 10:40:33 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/19 17:34:12 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+typedef struct		s_list
+{
+	void			*content;
+    struct s_list	*next;
+}					t_list;
 
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_bzero(void *s, size_t n);
@@ -54,7 +60,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-void	ft_putchar_fd(char c, int fd);
+void	ft_putchar_fd(unsigned char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 
 #endif

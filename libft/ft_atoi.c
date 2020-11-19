@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:38:33 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/17 15:47:28 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/19 16:52:31 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,20 @@ int		return_atoi(long int res, int neg)
 	return (out);
 }
 
+
+
 int		ft_atoi(const char *str)
 {
 	long int	res;
 	int			i;
 	int			neg;
+	char		*spaces;
 
 	res = 0;
+	spaces = "\t\v\f\r\n\e ";
 	i = 0;
 	neg = 1;
-	while (ft_isdigit(str[i]) || (str[i] == '-') || (str[i] == '+')  || (str[i] == '\t')  || (str[i] == '\v')  || (str[i] == '\f') || (str[i] == '\r') || (str[i] == ' ')  || (str[i] == '\n'))
+	while (!ft_isdigit(str[i]) && !(str[i] == '-') && !(str[i] == '+'))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -52,7 +56,7 @@ int		ft_atoi(const char *str)
 }
 
 // int main(){
-// 	char *smth =  "\t\n\r\v\f  469 \n";
+// 	char *smth =  "\t\n\r\v\f\e  \e0046900 \n";
 // 	printf("%d\n", atoi(smth));
 // 	printf("%d\n", ft_atoi(smth));
 // }

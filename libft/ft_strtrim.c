@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 12:59:42 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/19 13:33:43 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/19 16:17:03 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,27 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char *str;
 	size_t	count_b;
 
+	if (!s1 || !set)
+		return (NULL);
 	str = (char *)s1;
 	count_b = 0;
 	i = 0;
 	while (ft_strchr(set, str[i++]))
 		count_b++;
-	i = ft_strlen(str);
+	i = ft_strlen(str) - 1;
 	while (ft_strchr(set, str[i]))
 		i--;
-	return (ft_substr(str, count_b, i+1));
+	str = ft_substr(str, count_b, i - count_b + 1);
+	// if (!str)
+	// 	return (NULL);
+	return (str);
 }
 
-int	main ()
-{
-    char s1[] = "  \n  \t  lorem \n ipsum \t dolor \n sit \t amet  \t \n ";
 
-    puts(ft_strtrim(s1, "\n \t"));
-	return 0;
-}
+// int	main ()
+// {
+//     char *s1 = "  \t \t \n   \n\n\n\t";
+// 	char *ret = ft_strtrim(s1, " \n\t");
+//     puts(ret);
+// 	return 0;
+// }

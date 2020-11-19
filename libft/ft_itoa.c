@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:57:18 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/18 21:25:37 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/19 14:20:49 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ char			*ft_itoa(int nb)
 	}
 	return (res);
 }
-int main()
-{
-	int c = -234390;
-	printf("%d\n%s\n", c, ft_itoa(c));
-}
+// int main()
+// {
+// 	int c = -234390;
+// 	printf("%d\n%s\n", c, ft_itoa(c));
+// }
 
