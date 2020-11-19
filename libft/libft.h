@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:47:53 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/19 17:34:12 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/19 19:00:27 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,9 @@ char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_putchar_fd(unsigned char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
+
+t_list	*ft_lstnew(void *content);
+t_list *ft_lstlast(t_list *lst);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif
