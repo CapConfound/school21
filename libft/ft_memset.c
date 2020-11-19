@@ -6,12 +6,13 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 16:11:07 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/17 15:26:27 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/19 19:43:17 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

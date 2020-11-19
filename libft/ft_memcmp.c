@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 21:08:22 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/17 15:25:37 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/19 20:31:51 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,25 @@ static int		my_strncmp(unsigned char *s1, unsigned char *s2, size_t n)
 {
 	size_t			ix;
 	unsigned char	diff;
-	unsigned char	c1;
-	unsigned char	c2;
 
 	ix = 0;
-	while ((s1[ix] || s2[ix]) && (ix < n))
+	diff = 0;
+	while (ix < n)
 	{
-		c2 = (unsigned char)s2[ix];
-		c1 = (unsigned char)s1[ix];
-		diff = c2 - c1;
-		if (c2 > c1)
-			return (-diff);
-		else if (c2 < c1)
+		if (!*s2 || !*s1)
+			break ;
+		if (*s2 > *s1)
+			diff = *s2 - *s1;
+		else if (*s2 < *s1)
+			diff = *s1 - *s2;
+		if (diff)
 			return (diff);
-		ix++;
+		s2++;
+		s1++;
 	}
 	return (0);
 }
+
 
 int				ft_memcmp(const void *s1, const void *s2, size_t n)
 {

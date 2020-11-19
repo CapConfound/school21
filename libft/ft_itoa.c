@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:57:18 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/19 14:20:49 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/19 20:21:56 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,6 @@ static int		dignum(long int i)
 	}
 	return (res);
 }
-
-// static long int		reverse(long int i)
-// {
-// 	long int rev;
-// 	int last;
-// 	int neg;
-
-// 	rev = 0;
-// 	last = 0;
-// 	neg = 1;
-// 	if (i == 0)
-// 		return (0);
-// 	if (i < 0)
-// 	{
-// 		i *= -1;
-// 		neg = -1;
-// 	}
-// 	while (i > 0)
-// 	{
-// 		last = i % 10;
-// 		rev = (rev * 10) + last;
-// 		i /= 10;
-// 	}
-// 	return (rev * neg);
-// }
 
 char			*ft_itoa(int nb)
 {
