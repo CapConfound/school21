@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 10:22:15 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/19 14:04:45 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/20 19:22:34 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void	ft_putstr_fd(char *s, int fd)
 	if (!fd || !s)
 		return ;
 	len = ft_strlen(s);
-	write (fd, s, len);
+	write(fd, s, len);
 }

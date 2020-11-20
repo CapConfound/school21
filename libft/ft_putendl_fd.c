@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 10:30:39 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/19 14:00:57 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/20 19:19:02 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	char c;
+	char ch;
 
-	c = '\0';
+	ch = '\0';
 	ft_putstr_fd(s, fd);
-	write(fd, &c, 1);
+	write(fd, &ch, 1);
 }
