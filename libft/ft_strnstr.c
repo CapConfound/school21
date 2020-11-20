@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 21:28:46 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/20 11:50:59 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/20 13:56:30 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	hay = (char *)big;
 	needle = (char *)little;
 	j = 0;
-	if (ft_strlen(hay) < ft_strlen(needle) || !len)
+	if (ft_strlen(hay) < ft_strlen(needle))
 		return (NULL);
 	while (j < len - ft_strlen(needle))
 	{
