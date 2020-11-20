@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 18:09:56 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/19 19:13:38 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/20 17:54:57 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,3 @@ char	*ft_strchr(const char *str, int c)
 	}
 	return (NULL);
 }
-// int main ()
-// {
-// 	char *src = "there is so \0ma\0ny \0 \\0 in t\0his stri\0ng !\0\0\0\0";
-// 	//puts(strchr(((void *)0), '0'));
-// 	puts(ft_strchr(src, '\0'));
-
-// }

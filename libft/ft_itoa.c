@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:57:18 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/20 14:11:19 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/20 17:50:43 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,3 @@ char			*ft_itoa(int nb)
 	}
 	return (res);
 }
-// int main()
-// {
-// 	int c = 9;
-// 	printf("%d\n%s\n", c, ft_itoa(c));
-// }
-

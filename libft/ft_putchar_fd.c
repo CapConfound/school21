@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 10:19:25 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/19 14:07:08 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/20 17:57:21 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putchar_fd(unsigned char c, int fd)
 {
-    if (!fd || !c)
-        return ;
-    write(fd, &c, 1);
+	if (!fd || !c)
+		return ;
+	write(fd, &c, 1);
 }

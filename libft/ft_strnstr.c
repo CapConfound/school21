@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 21:28:46 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/20 13:56:30 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/20 18:19:12 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	hay = (char *)big;
 	needle = (char *)little;
 	j = 0;
-	if (ft_strlen(hay) < ft_strlen(needle))
+	if (ft_strlen(hay) < ft_strlen(needle) || !len)
 		return (NULL);
-	while (j < len - ft_strlen(needle))
+	while (j < len)
 	{
 		i = -1;
-		while (hay[j] == needle[++i])
+		while (hay[j] == needle[++i] && j < len)
 		{
 			if (i == ft_strlen(needle) - 1)
 				return ((char *)&hay[j - i]);
