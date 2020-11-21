@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 10:33:37 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/20 19:23:40 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/21 18:17:09 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (!n || !fd)
-		return ;
-	//
+	ft_putstr_fd(ft_itoa(n), fd);
 }

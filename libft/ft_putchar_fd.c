@@ -6,13 +6,15 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 10:19:25 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/20 19:08:43 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/21 14:45:12 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(unsigned char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
+	if (fd < 0)
+		return ;
 	write(fd, &c, 1);
 }
