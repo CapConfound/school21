@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 17:41:01 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/19 17:44:41 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/22 19:45:35 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@ int ft_lstsize(t_list *lst)
 {
     int size;
 
-    size = 0;
+    
+    if(!lst)
+        return (0);
+    size = 1;
     while (lst->next)
     {
-        size++;
         lst = lst->next;
+        size++;
     }
     return (size);
 }

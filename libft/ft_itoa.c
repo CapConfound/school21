@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:57:18 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/21 18:11:14 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/22 22:46:39 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ char			*ft_itoa(int nb)
 	int		neg;
 
 	neg = 1;
-	if (nb == 0)
-		return ("0");
 	dcount = dignum(nb);
 	res = malloc(((dcount) * sizeof(int)) + 1);
 	if (!res)
@@ -47,16 +45,12 @@ char			*ft_itoa(int nb)
 	}
 	res[dcount] = '\0';
 	dcount--;
+	if (nb == 0)
+		res[0] = '0';
 	while (nb != 0)
 	{
 		res[dcount--] = ((nb % 10)*neg + 48);
 		nb /= 10;
 	}
-
 	return (res);
 }
-
-// int				main (void)
-// {
-// 	puts(ft_itoa(0));
-// }

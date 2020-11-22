@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 16:34:03 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/22 22:34:30 by tmelina          ###   ########.fr       */
+/*   Created: 2020/11/22 11:42:14 by tmelina           #+#    #+#             */
+/*   Updated: 2020/11/22 11:44:40 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*subs;
-	size_t	i;
+// static int	countwords(char *c, char div)
+// {
+// 	size_t	i;
+// 	int		words;
 
-	subs = malloc((len * sizeof(char)) + 1);
-	i = 0;
-	if (!subs || !s)
-		return (NULL);
-	if (start >= ft_strlen((char *)s))
-		len = 1;
-	if (ft_strlen((char *)s) <= start)
-		i = len;
-	while (i < len)
-		subs[i++] = s[start++];
-	subs[i] = '\0';
-	return (subs);
-}
+	
+// 	return (words);
+// }
+// char		**ft_split(char const *s, char c)
+// {
+	
+// }
