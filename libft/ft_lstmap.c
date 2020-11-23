@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 10:33:37 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/23 12:16:21 by tmelina          ###   ########.fr       */
+/*   Created: 2020/11/23 16:37:42 by tmelina           #+#    #+#             */
+/*   Updated: 2020/11/23 17:46:58 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char str[50];
-	char c;
-	int ix;
-	int neg;
+	t_list *new_el;
+	t_list *adress;
 
-	neg = 1;
-	ix = 0;
-	if (n == 0)
-		ft_putchar_fd('0', fd);
-	if (n < 0)
+	if (!lst || !f || !del)
+		return (NULL);
+	new_el = NULL;
+	adress = new_el;
+	while (lst)
 	{
-		ft_putchar_fd('-', fd);
-		neg = -1;
+		if (!new_el = malloc(sizeof(t_list)))
+		{
+			del(new_el);
+			break ;
+		}
+		new_el->content = f(lst->content);
+		lst = lst->next;
+		new_el = new_el->next;
 	}
-	while (n != 0)
-	{
-		str[++ix] = n % 10;
-		n /= 10;
-	}
-	while (ix > 0)
-	{
-		c = str[ix--] * neg + '0';
-		ft_putchar_fd(c, fd);
-	}
+	return (adress);
 }
