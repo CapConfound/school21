@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 11:42:14 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/24 11:55:07 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/24 21:01:28 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft.h"
 
@@ -19,12 +18,12 @@ static unsigned int	countwords(char const *s, char div)
 	int				is_end;
 	unsigned int	words;
 
-    if(!s)
-        return (0);
+	if (!s)
+		return (0);
 	is_end = 1;
 	i = 0;
 	words = 0;
-    while (s[i])
+	while (s[i])
 	{
 		if (s[i] == div)
 			is_end = 1;
@@ -38,7 +37,7 @@ static unsigned int	countwords(char const *s, char div)
 	return (words);
 }
 
-char		**malloc_error(char **s)
+char				**malloc_error(char **s)
 {
 	while (s)
 		free(*s++);
@@ -46,24 +45,32 @@ char		**malloc_error(char **s)
 	return (NULL);
 }
 
-static char		*get_word(char const *s, unsigned int i, char c)
+static char			*get_next_word(char const *s, unsigned int i, char d)
 {
-	unsigned int start;
-	char *word;
+	char			*res;
+	unsigned int	j;
 
-	start = i;
-	while (s[i] != c)
+	res = NULL;
+	j = 0;
+	if (!s)
+		return (0);
+	while (s[i] != d && s[i])
+	{
+		res[j] = s[i];
 		i++;
-	return (ft_strlcat(word, ))
+	}
+	return (res);
 }
 
-char		**ft_split(char const *s, char c)
+char				**ft_split(char const *s, char c)
 {
-	char	**result;
-	char	*str2write;
-	unsigned int i;
-	unsigned int row;
+	char			**result;
+	char			*str2write;
+	unsigned int	i;
+	unsigned int	row;
 
+	if (!s || !c)
+		return (NULL);
 	result = malloc(countwords(s, c) * sizeof(char));
 	if (!result)
 		return (NULL);
@@ -72,7 +79,7 @@ char		**ft_split(char const *s, char c)
 	row = 0;
 	while (row < countwords(s, c) || s[i])
 	{
-		str2write = get_word(s, i, c);
+		str2write = get_next_word(s, i, c);
 		i = i + ft_strlen(str2write) + 1;
 		result[row] = malloc(ft_strlen(str2write) * sizeof(char) + 1);
 		if (!result[row])
@@ -81,4 +88,11 @@ char		**ft_split(char const *s, char c)
 		row++;
 	}
 	return (result);
+}
+
+int					main(void)
+{
+	char	**spl;
+
+	spl = ft_split("dfskla,fdkl,adfsj,adsfj,,as", ',');
 }

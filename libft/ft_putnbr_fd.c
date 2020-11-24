@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 10:33:37 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/23 12:16:21 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/24 20:26:43 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char str[50];
-	char c;
-	int ix;
-	int neg;
+	char	str[50];
+	char	c;
+	int		ix;
+	int		neg;
 
 	neg = 1;
 	ix = 0;

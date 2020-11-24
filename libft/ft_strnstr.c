@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 21:28:46 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/22 22:38:11 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/24 20:23:27 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 				return ((char *)&hay[j - i]);
 			j++;
 		}
-		j++;
+		j = j - i + 1;
 	}
 	return (NULL);
 }
