@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 11:42:14 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/24 21:01:28 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/25 00:11:37 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,12 @@ static char			*get_next_word(char const *s, unsigned int i, char d)
 	unsigned int	j;
 
 	res = NULL;
-	j = 0;
+	j = i;
 	if (!s)
 		return (0);
-	while (s[i] != d && s[i])
-	{
-		res[j] = s[i];
-		i++;
-	}
-	return (res);
+	while (s[i] != d && s[i++])
+		j++;
+	return (ft_substr(s, i, j));
 }
 
 char				**ft_split(char const *s, char c)
@@ -80,6 +77,7 @@ char				**ft_split(char const *s, char c)
 	while (row < countwords(s, c) || s[i])
 	{
 		str2write = get_next_word(s, i, c);
+		puts(str2write);
 		i = i + ft_strlen(str2write) + 1;
 		result[row] = malloc(ft_strlen(str2write) * sizeof(char) + 1);
 		if (!result[row])
@@ -95,4 +93,13 @@ int					main(void)
 	char	**spl;
 
 	spl = ft_split("dfskla,fdkl,adfsj,adsfj,,as", ',');
+	// for (int i = 0; i < 5; i++)
+	// {
+	// 	for (int j = 0; j < ft_strlen(spl[i]); j++)
+	// 	{
+	// 		putchar(spl[i][j]);
+	// 	}
+	// 	putchar('\n');
+	// }
+	
 }
