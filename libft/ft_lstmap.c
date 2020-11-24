@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:37:42 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/23 17:46:58 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/24 11:18:21 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	adress = new_el;
 	while (lst)
 	{
-		if (!new_el = malloc(sizeof(t_list)))
+		if (!(new_el = malloc(sizeof(t_list))))
 		{
 			del(new_el);
 			break ;
