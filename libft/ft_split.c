@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 11:42:14 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/25 18:29:07 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/25 20:20:36 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-static size_t	countwords(char const *s, char div)
+static size_t		countwords(char const *s, char div)
 {
 	size_t	i;
 	size_t	is_end;
@@ -38,7 +37,7 @@ static size_t	countwords(char const *s, char div)
 	return (words);
 }
 
-static char		**malloc_error(char **s)
+static char			**malloc_error(char **s)
 {
 	while (s)
 		free(*s++);
@@ -46,76 +45,59 @@ static char		**malloc_error(char **s)
 	return (NULL);
 }
 
-// static char			*get_next_word(char const *s, char d)
-// {
-// 	char			*res;
-// 	size_t			i;
-	
-// 	i = 0;
-// 	res = NULL;
-// 	if (!*s)
-// 		return (NULL);
-// 	while (*s == d || *s != 0)
-// 		s++;
-// 	while (s[i] != d && s[i])
-// 		i++;
-// 	return (ft_substr(s, 0, i));
-// }
-
-static void		get_next_word(char **s, size_t *strlen,
-				char c)
+static int			get_next_word(char const *s, char d)
 {
-	size_t	i;
+	size_t			i;
 
 	i = 0;
-	*s += *strlen;
-	*strlen = 0;
-	while (**s && **s == c)
-		(*s)++;
-	while ((*s)[i])
+	while (*s == d && *s != 0)
+		s++;
+	while (*s != d && *s)
 	{
-		if ((*s)[i] == c)
-			return ;
-		(*strlen)++;
+		s++;
 		i++;
 	}
+	return (i);
 }
 
-char			**ft_split(char const *s, char c)
+static int			count_sd(const char *s, char c)
+{
+	int	i;
+
+	i = 0;
+	while (*s == c && *s != 0)
+	{
+		s++;
+		i++;
+	}
+	return (i);
+}
+
+char				**ft_split(char const *s, char c)
 {
 	char	**result;
-	char	*str2write;
-	size_t	strlen;
-	size_t	i;
-	size_t	row;
+	int		str2write;
+	int		strlen;
+	int		row;
 
 	if (!s)
 		return (NULL);
-	result = malloc(countwords(s, c) * sizeof(char));
-	if (!result)
+	strlen = countwords(s, c);
+	if (!(result = (char **)malloc((strlen + 1) * sizeof(char *))))
 		return (NULL);
-	str2write = (char *)s;
-	i = 0;
-	strlen = 0;
+	str2write = 0;
 	row = 0;
-	while (row < countwords(s, c))
+	while (row < strlen)
 	{
-		get_next_word(&str2write, &strlen, c);
-		result[row] = malloc(ft_strlen(str2write) * sizeof(char) + 1);
+		str2write = get_next_word(s, c);
+		s += count_sd(s, c);
+		result[row] = malloc(str2write * sizeof(char) + 1);
 		if (!result[row])
 			return (malloc_error(result));
-		ft_strlcpy(result[row], str2write, ft_strlen(str2write) + 1);
+		ft_strlcpy(result[row], (char *)s, str2write + 1);
+		s += str2write;
 		row++;
 	}
+	result[row] = 0;
 	return (result);
-}
-
-int				main(void)
-{
-	char	**spl;
-	spl = ft_split("olol  ", ' ');
-	for (int i = 0; i < 2; i++)
-	{
-		ft_putendl_fd(spl[i], 1);
-	}
 }
