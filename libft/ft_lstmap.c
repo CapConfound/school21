@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:37:42 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/24 20:13:26 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/25 20:59:11 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list *new_el;
 	t_list *adress;
 
-	if (!f)
+	if (!f || !del)
 		return (NULL);
 	new_el = NULL;
 	adress = new_el;
