@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 12:50:20 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/18 21:25:12 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/25 23:06:32 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	res = malloc((ft_strlen((char *)s1) +
-	ft_strlen((char *)s2)) * sizeof(char) + 1);
+	res = malloc((ft_strlen(s1) +
+	ft_strlen(s2)) * sizeof(char) + 1);
 	if (!res)
 		return (NULL);
 	i1 = 0;

@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:20:19 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/18 19:37:44 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/25 23:06:32 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return (NULL);
-	slen = ft_strlen((char *)s);
+	slen = ft_strlen(s);
 	res = malloc(slen * sizeof(char) + 1);
 	if (!res)
 		return (NULL);
