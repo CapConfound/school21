@@ -6,17 +6,18 @@
 /*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 11:42:14 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/25 00:11:37 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/25 18:29:07 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	countwords(char const *s, char div)
+
+static size_t	countwords(char const *s, char div)
 {
-	size_t			i;
-	int				is_end;
-	unsigned int	words;
+	size_t	i;
+	size_t	is_end;
+	size_t	words;
 
 	if (!s)
 		return (0);
@@ -37,7 +38,7 @@ static unsigned int	countwords(char const *s, char div)
 	return (words);
 }
 
-char				**malloc_error(char **s)
+static char		**malloc_error(char **s)
 {
 	while (s)
 		free(*s++);
@@ -45,40 +46,61 @@ char				**malloc_error(char **s)
 	return (NULL);
 }
 
-static char			*get_next_word(char const *s, unsigned int i, char d)
-{
-	char			*res;
-	unsigned int	j;
+// static char			*get_next_word(char const *s, char d)
+// {
+// 	char			*res;
+// 	size_t			i;
+	
+// 	i = 0;
+// 	res = NULL;
+// 	if (!*s)
+// 		return (NULL);
+// 	while (*s == d || *s != 0)
+// 		s++;
+// 	while (s[i] != d && s[i])
+// 		i++;
+// 	return (ft_substr(s, 0, i));
+// }
 
-	res = NULL;
-	j = i;
-	if (!s)
-		return (0);
-	while (s[i] != d && s[i++])
-		j++;
-	return (ft_substr(s, i, j));
+static void		get_next_word(char **s, size_t *strlen,
+				char c)
+{
+	size_t	i;
+
+	i = 0;
+	*s += *strlen;
+	*strlen = 0;
+	while (**s && **s == c)
+		(*s)++;
+	while ((*s)[i])
+	{
+		if ((*s)[i] == c)
+			return ;
+		(*strlen)++;
+		i++;
+	}
 }
 
-char				**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
-	char			**result;
-	char			*str2write;
-	unsigned int	i;
-	unsigned int	row;
+	char	**result;
+	char	*str2write;
+	size_t	strlen;
+	size_t	i;
+	size_t	row;
 
-	if (!s || !c)
+	if (!s)
 		return (NULL);
 	result = malloc(countwords(s, c) * sizeof(char));
 	if (!result)
 		return (NULL);
-	str2write = NULL;
+	str2write = (char *)s;
 	i = 0;
+	strlen = 0;
 	row = 0;
-	while (row < countwords(s, c) || s[i])
+	while (row < countwords(s, c))
 	{
-		str2write = get_next_word(s, i, c);
-		puts(str2write);
-		i = i + ft_strlen(str2write) + 1;
+		get_next_word(&str2write, &strlen, c);
 		result[row] = malloc(ft_strlen(str2write) * sizeof(char) + 1);
 		if (!result[row])
 			return (malloc_error(result));
@@ -88,18 +110,12 @@ char				**ft_split(char const *s, char c)
 	return (result);
 }
 
-int					main(void)
+int				main(void)
 {
 	char	**spl;
-
-	spl = ft_split("dfskla,fdkl,adfsj,adsfj,,as", ',');
-	// for (int i = 0; i < 5; i++)
-	// {
-	// 	for (int j = 0; j < ft_strlen(spl[i]); j++)
-	// 	{
-	// 		putchar(spl[i][j]);
-	// 	}
-	// 	putchar('\n');
-	// }
-	
+	spl = ft_split("olol  ", ' ');
+	for (int i = 0; i < 2; i++)
+	{
+		ft_putendl_fd(spl[i], 1);
+	}
 }
