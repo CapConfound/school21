@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 11:42:14 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/25 20:20:36 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/26 20:16:10 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char				**ft_split(char const *s, char c)
 		result[row] = malloc(str2write * sizeof(char) + 1);
 		if (!result[row])
 			return (malloc_error(result));
-		ft_strlcpy(result[row], (char *)s, str2write + 1);
+		ft_strlcpy(result[row], s, str2write + 1);
 		s += str2write;
 		row++;
 	}

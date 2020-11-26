@@ -6,13 +6,13 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:52:28 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/17 15:27:27 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/26 20:17:01 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *str)
+char	*ft_strdup(const char *str)
 {
 	char	*str1;
 	int		lenght;

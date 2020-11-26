@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:47:53 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/25 23:03:25 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/26 20:18:08 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void				*ft_memchr(const void *str, int ch, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 
 size_t				ft_strlen(const char *str);
-size_t				ft_strlcpy(char *dest, char *src, size_t size);
+size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
 char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);
@@ -52,7 +52,7 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 
 void				*ft_calloc(size_t num, size_t size);
-char				*ft_strdup(char *str);
+char				*ft_strdup(const char *str);
 
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);

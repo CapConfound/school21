@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:01:47 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/17 15:29:23 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/26 20:30:49 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,21 @@
 #include <unistd.h>
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t i;
 
-	i = -1;
+	i = 0;
 	if (!dest || !src)
 		return (0);
-	if (size < 1)
+	if (size == 0)
 		return (ft_strlen(src));
-	while (src[++i] && i < size - 1)
+	--size;
+	while (src[i] && i < size)
 	{
 		dest[i] = src[i];
+		i++;
 	}
 	dest[i] = '\0';
-	if (ft_strlen(src) > size)
-		while (src[i])
-			i++;
-	return (i);
+	return (ft_strlen(src));
 }

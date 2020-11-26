@@ -6,7 +6,7 @@
 /*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:37:42 by tmelina           #+#    #+#             */
-/*   Updated: 2020/11/25 20:59:11 by tmelina          ###   ########.fr       */
+/*   Updated: 2020/11/26 20:58:03 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,17 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list *new_el;
 	t_list *adress;
 
-	if (!f || !del)
+	if (!lst || !f)
 		return (NULL);
-	new_el = NULL;
-	adress = new_el;
+	adress = NULL;
 	while (lst)
 	{
-		if (!(new_el = malloc(sizeof(t_list))))
+		new_el = ft_lstnew(f(lst->content));
+		if (!new_el)
 		{
 			ft_lstclear(&adress, del);
-			break ;
+			return (NULL);
 		}
-		new_el->content = f(lst->content);
 		lst = lst->next;
 		ft_lstadd_back(&adress, new_el);
 	}
