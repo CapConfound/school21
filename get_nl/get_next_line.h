@@ -6,5 +6,6 @@
 #include <string.h>
 #include <math.h>
 #include <util.h>
+#include <fcntl.h>
 
 #endif
