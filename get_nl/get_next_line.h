@@ -1,4 +1,4 @@
-# ifndef GET_NEXT_LINE_
+# ifndef GET_NEXT_LINE_H
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -7,5 +7,7 @@
 #include <math.h>
 #include <util.h>
 #include <fcntl.h>
+
+int		get_next_line(int fd, char **line);
 
 #endif

@@ -3,37 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 22:17:08 by tmelina           #+#    #+#             */
-/*   Updated: 2020/12/19 20:03:51 by tmelina          ###   ########.fr       */
+/*   Updated: 2021/01/06 22:38:30 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#define BUFFER_SIZE 4096
+#define BUFFER_SIZE 1
 
 int		get_next_line(int fd, char **line)
 {
-	char *buffer;
-
-	buffer = NULL;
-	puts("im in");
-	if (read(fd, buffer, BUFFER_SIZE)== -1)
-		puts("im outtahere");
-	puts(buffer);
-	puts("bs");
+	char buffer[BUFFER_SIZE + 1];
+	int check;
+	
+	line = malloc(BUFFER_SIZE + 1);
+	check = read(fd, *line++, BUFFER_SIZE);
+	while (check != -1 || **line != '\n')
+	{
+		read(fd, *line++, BUFFER_SIZE);
+		write(1, &**line, 1);
+	}
+	line++;
+		
+	// if (== -1)
+	// 	{
+	// 		puts("im outtahere");
+	// 		exit(1);
+	// 	}
+	// printf("buffer: %s\n-----", buffer);
 	return (1);
 }
 
-int main(int argc, char **argv) {
-	(void) argc;
-	(void) argv;
-	int fd;
-	char **line;
-
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-		return (-1);
-	get_next_line(fd, line);
-}
