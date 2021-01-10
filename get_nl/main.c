@@ -34,7 +34,7 @@ int main(int argc, const char **argv) {
     (void) argc;
     (void) argv;
     int fd;
-    char *line = 0;
+    char **line;
     int i = 0;
     char *filename_str = (char *)argv[1];
     
@@ -46,12 +46,12 @@ int main(int argc, const char **argv) {
     printf("here we go:\n--------\n");
     if (fd < 0)
         return (-1);
-    
+    line = malloc(500*sizeof(char));
     while (i < 6)
     {
         /* code */
         printf("run %d:", i);
-        get_next_line(fd, &line);
+        get_next_line(fd, line);
         i++;
     }
 

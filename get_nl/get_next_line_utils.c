@@ -104,3 +104,20 @@ size_t    ft_strlcat(char *dest, const char *src, size_t size)
     return (res);
 }
 
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*sequence;
+	unsigned int	ch;
+	unsigned int	i;
+
+	ch = c;
+	sequence = s;
+	i = 0;
+	while (i < n)
+	{
+		*sequence++ = ch;
+		i++;
+	}
+	return (s);
+}
+
