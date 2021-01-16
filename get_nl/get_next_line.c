@@ -6,83 +6,51 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 22:17:08 by tmelina           #+#    #+#             */
-/*   Updated: 2021/01/10 23:50:55 by ilya             ###   ########.fr       */
+/*   Updated: 2021/01/16 21:11:28 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-#define BUFFER_SIZE 3
 
-int        geet_next_line(int fd, char **line)
+char *append_str(char *str, char *to_append)
 {
-    size_t i;
-    char buffer[BUFFER_SIZE + 1];
-    i = 0;
-    
-    while (read(fd, buffer, 1) != -1 && ft_strncmp(buffer, "\n", 1))
+    size_t size1;
+    size_t size2;
+
+    size1 = ft_strlen(str);
+    size2 = ft_strlen(to_append);
+    while (size2 != 0)
     {
-        printf("%s\n", buffer);
-        // *line = *buffer; // замена, а надо дописывать
-        line = malloc (sizeof(char));
-        //strlcat(*line, buffer, 1);
-        printf("\nline: %s\n", *line);
-        i++;
+        str = malloc(sizeof(char));
+        *(str + size1) = *to_append++;
+        size2--;
     }
-    // while (check != -1 && buffer[ft_strlen(buffer) - 1] != '\n')
-    //     read(fd, buffer, BUFFER_SIZE);
-        
-    // if (== -1)
-    //     {
-    //         puts("im outtahere");
-    //         exit(1);
-    //     }
-    printf("%s\n", buffer);
-    printf("\nline: %s\n", *line);
-    return (1);
+    return (str);
 }
 
 int        get_next_line(int fd, char **line)
 {
     size_t i;
-    char *xz[255];
     char *tmp;
     char buffer[BUFFER_SIZE + 1];
     i = 0;
     size_t code;
 
-    puts("");
+    puts(*line);
+    
     while ((code = read(fd, buffer, BUFFER_SIZE)) > 0)
     {
-//        printf("%s\n", buffer);
-//        // *line = *buffer; // замена, а надо дописывать
-//        *line = malloc(sizeof(char));
-//        strlcat(*line, buffer, 2);
-//        printf("line: %s\n", *line++);
-        buffer[code] = 0;
-        if (!xz[fd])
-            ft_memset(&xz[fd], '-', 1);
-        tmp = ft_strjoin(xz[fd], buffer);
-        free(xz[fd]);
-        xz[fd] = tmp;
-        if (strchr(buffer, '\n'))
-			break ;
-        printf("tmp - %s|buf - %s\n", tmp, buffer);
+        if (buffer[ft_strlen(buffer) - 1] == '\0')
+            return (0);
+        if (buffer[ft_strlen(buffer) - 1] == '\n')
+            return (1);
+        tmp = malloc(sizeof(char));
+        tmp = ft_strjoin(tmp, buffer);
+        puts(tmp);
+        puts(".");
+        tmp++;
     }
-//    if (code == 0 && )
-    // while (check != -1 && buffer[ft_strlen(buffer) - 1] != '\n')
-    //     read(fd, buffer, BUFFER_SIZE);
-        
-    // if (== -1)
-    //     {
-    //         puts("im outtahere");
-    //         exit(1);
-    //     }
-    for (int l = 0; l < 1; l++)
-    {
-        printf("%s", *line);
-    }
-    
-    return (1);
+    return (-1);
 }
 
