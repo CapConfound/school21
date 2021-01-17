@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 22:17:08 by tmelina           #+#    #+#             */
-/*   Updated: 2021/01/17 22:46:35 by ilya             ###   ########.fr       */
+/*   Updated: 2021/01/17 22:48:02 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ char *append_str(char *str, char *to_append)
 int        get_next_line(int fd, char **line)
 {
     size_t i;
-    char *tmp;
     char buffer[BUFFER_SIZE + 1];
+    size_t lenght;
     i = 0;
     size_t code;
 
@@ -41,16 +41,17 @@ int        get_next_line(int fd, char **line)
     
     while ((code = read(fd, buffer, BUFFER_SIZE)) > 0)
     {
-        if (buffer[ft_strlen(buffer) - 1] == '\0')
+        buffer[code] = 0;
+        if (buffer[code - 1] == '\0')
             return (0);
-        if (buffer[ft_strlen(buffer) - 1] == '\n')
+        if (buffer[code - 1] == '\n')
             return (1);
-        tmp = malloc(sizeof(char));
-        tmp = ft_strjoin(tmp, buffer);
-        puts(tmp);
-        puts(".");
-        tmp++;
+        line = malloc(code);
+        *line = ft_strjoin((const char *)*line, buffer);
+        puts(*line);
+        line++;
     }
     return (-1);
 }
+
 
