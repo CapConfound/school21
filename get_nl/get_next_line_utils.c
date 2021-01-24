@@ -122,3 +122,20 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
+char	*ft_strrchr(const char *str, int c)
+{
+	size_t			lenght;
+	unsigned char	*s;
+
+	s = (unsigned char *)str;
+	lenght = ft_strlen((const char *)s);
+	while (lenght)
+	{
+		if (s[lenght] == (char)c)
+			break ;
+		lenght--;
+	}
+	if (s[lenght] == (char)c)
+		return ((char *)&str[lenght]);
+	return (NULL);
+}

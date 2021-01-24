@@ -19,9 +19,10 @@ int main(int argc, const char **argv) {
     if (fd < 0)
         return (-1);
     line = malloc(500*sizeof(char));
-    while (c != -1)
+    // while (c != -1)
+    for(int j = 0; j< 10; j++)
     {
-        printf("\nline %d:\n", i);
+        printf("line %d:\n", i);
         c = get_next_line(fd, line);
         printf("\ngnl - %d\n", c);
         i++;

@@ -1,5 +1,5 @@
 build:	
-		gcc -D BUFFER_SIZE=2 -o app *.c 
+		gcc -D BUFFER_SIZE=32 -o app *.c 
 
 berror:
 		gcc -Wall -Wextra -Werror -D BUFFER_SIZE=2 -o app *.c 

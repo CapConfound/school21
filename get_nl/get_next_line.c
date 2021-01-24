@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 22:17:08 by tmelina           #+#    #+#             */
-/*   Updated: 2021/01/21 21:08:59 by tmelina          ###   ########.fr       */
+/*   Updated: 2021/01/24 16:03:48 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,35 @@ char *append_str(char *str, char *to_append)
 
 int        get_next_line(int fd, char **line)
 {
-    size_t i;
-    char buffer[BUFFER_SIZE + 1];
-    size_t lenght;
-    char *banana;
-    i = 0;
-    size_t code;
+    char *buffer;
+    int read_code;
+    char *temp_storage;
 
-    
-    while ((code = read(fd, buffer, BUFFER_SIZE)) > 0)
+    write(1, "d", 1);
+    if (!line || BUFFER_SIZE <= 0)
+        return (-1);
+    read_code = 1;
+    temp_storage = calloc(BUFFER_SIZE, sizeof(char));
+    while (!ft_strrchr(temp_storage, 0) || read_code !=0)
     {
-        buffer[code] = 0;
-        //printf("ch - %c\n", buffer[code - 1]);
-        if (buffer[code - 1] == '\0')
-            return (0);
-        if (buffer[code - 1] == '\n')
-            return (1);
-        banana = malloc(sizeof(char) * code);
-        banana = ft_strjoin(banana, buffer);
-        
-        puts(banana);
+
+        if ((read_code = read(fd, buffer, BUFFER_SIZE)) < 0)
+            return(-1);
+        buffer[read_code] = 0;
+        //printf("ch - %c\n", buffer[read_code - 1]);
+        temp_storage = malloc(sizeof(char) * read_code);
+        temp_storage = ft_strjoin(temp_storage, buffer);
+
+        puts(temp_storage);
     }
-    fd++;
-    return (-1);
+
+    free(buffer);
+    *line = append_str(temp_storage);
+    // if (ft_strrchr(temp_storage, '\n'))
+    //     return (1);
+    // if (ft_strrchr(temp_storage, '\0') == read_code)
+    //     return (-1);
+    return (read_code);
 }
 
 
