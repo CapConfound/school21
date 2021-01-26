@@ -20,7 +20,7 @@ int main(int argc, const char **argv) {
         return (-1);
     line = malloc(500*sizeof(char));
     // while (c != -1)
-    for(int j = 0; j< 10; j++)
+    for(int j = 0; j< 5; j++)
     {
         printf("line %d:\n", i);
         c = get_next_line(fd, line);

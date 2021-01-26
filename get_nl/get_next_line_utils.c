@@ -38,20 +38,22 @@ char    *ft_strjoin(char const *s1, char const *s2)
     return (res);
 }
 
-char	*ft_strrchr(const char *str, int c)
+char    *ft_strrchr(const char *str, int c)
 {
-	size_t			lenght;
-	unsigned char	*s;
-
-	s = (unsigned char *)str;
-	lenght = ft_strlen((const char *)s);
-	while (lenght)
-	{
-		if (s[lenght] == (char)c)
-			break ;
-		lenght--;
-	}
-	if (s[lenght] == (char)c)
-		return ((char *)&str[lenght]);
-	return (NULL);
+    size_t            lenght;
+    unsigned char    *s;
+    
+    if(!str)
+        return (0);
+    s = (unsigned char *)str;
+    lenght = ft_strlen((const char *)s);
+    while (lenght)
+    {
+        if (s[lenght] == (char)c)
+            break ;
+        lenght--;
+    }
+    if (s[lenght] == (char)c)
+        return ((char *)&str[lenght]);
+    return (NULL);
 }
