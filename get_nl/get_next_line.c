@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 22:17:08 by tmelina           #+#    #+#             */
-/*   Updated: 2021/01/26 19:23:05 by tmelina          ###   ########.fr       */
+/*   Updated: 2021/01/26 21:54:04 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t  get_line(char *str)
     size_t size;
 
     size = 0;
-    while(str && str[size] != '\n')
+    while(str[size] && str[size] != '\n' && size < BUFFER_SIZE)
     {
         size++;
     }
@@ -54,7 +54,7 @@ int     get_next_line(int fd, char **line) {
     !(buffer = malloc((BUFFER_SIZE + 1) * sizeof(char))))
         return (-1);
     read_code = 1;
-    while (!ft_strrchr(temp_storage, '\n') || read_code > 0)
+    while (!get_line(buffer) || read_code > 0)
     {
         
         if ((read_code = read(fd, buffer, BUFFER_SIZE)) < 0)
