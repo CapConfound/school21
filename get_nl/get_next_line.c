@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 22:17:08 by tmelina           #+#    #+#             */
-/*   Updated: 2021/01/26 21:54:04 by ilya             ###   ########.fr       */
+/*   Updated: 2021/01/27 17:52:45 by tmelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,16 @@ char    *append(char *string) {
 }
 
 int     get_next_line(int fd, char **line) {
-    char *buffer;
+    char buffer[BUFFER_SIZE + 1];
     int read_code;
     char *temp_storage;
 
-    if (!line || BUFFER_SIZE <= 0 || fd < 0 ||
-    !(buffer = malloc((BUFFER_SIZE + 1) * sizeof(char))))
+    if (!line || BUFFER_SIZE <= 0 || fd < 0)
         return (-1);
     read_code = 1;
     while (!get_line(buffer) || read_code > 0)
     {
-        
-        if ((read_code = read(fd, buffer, BUFFER_SIZE)) < 0)
+        if ((read_code = read(fd, buffer, BUFFER_SIZE)) <= 0)
         {
             free(buffer);
             return (-1);
@@ -65,10 +63,13 @@ int     get_next_line(int fd, char **line) {
         buffer[read_code] = 0;
         if(!(temp_storage = malloc(sizeof(char) * get_line(buffer))))
             return (-1);
+        *temp_storage = 0;
         // printf("read_code - %d\n", read_code);
+        // printf("code - %d\n", get_line(buffer));
         // printf("ch - %c\n", buffer[read_code - 1]);
+        
         temp_storage = ft_strjoin(temp_storage, buffer);
-        puts(temp_storage);
+        printf("(ts - %s\n)", temp_storage);
     }
     free(buffer);
     *line = append(temp_storage);
