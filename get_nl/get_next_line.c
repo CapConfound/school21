@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmelina <tmelina@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 22:17:08 by tmelina           #+#    #+#             */
-/*   Updated: 2021/01/27 17:52:45 by tmelina          ###   ########.fr       */
+/*   Updated: 2021/01/31 22:30:08 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,55 +24,57 @@ size_t  get_line(char *str)
     return (size);
 }
 
-char    *append(char *string) {
-    int i;
-    char *result;
+char *ft_strinit(void)
+{
+    char *str;
 
-    i = 0;
-    if (!string)
-        return (0);
-    while (string[i] != '\0' && string[i] != '\n')
-    {
-        if (!(result = malloc(sizeof(char))))
-        {
-            free(result);
-            return (0);
-        }
-        result[i] = string[i];
-        i++;
-    }
-    result[i] = '\0';
-    return (result);
+    str = malloc(sizeof(char));
+    *str = 0;
+    return (str);
 }
 
 int     get_next_line(int fd, char **line) {
     char buffer[BUFFER_SIZE + 1];
     int read_code;
     char *temp_storage;
+    char *slime;
+    int i = 1;
 
-    if (!line || BUFFER_SIZE <= 0 || fd < 0)
+    if (BUFFER_SIZE <= 0 || fd < 0)
         return (-1);
+    if (!*line)
+        *line = ft_strinit();
+    if(temp_storage)
+        temp_storage = ft_strinit();
     read_code = 1;
-    while (!get_line(buffer) || read_code > 0)
+    while ((read_code = read(fd, buffer, BUFFER_SIZE)) >= 0)
     {
-        if ((read_code = read(fd, buffer, BUFFER_SIZE)) <= 0)
-        {
-            free(buffer);
-            return (-1);
-        }
         buffer[read_code] = 0;
-        if(!(temp_storage = malloc(sizeof(char) * get_line(buffer))))
-            return (-1);
-        *temp_storage = 0;
-        // printf("read_code - %d\n", read_code);
+//        printf("ya v cikle:%d\n", i);
+//        if(!(temp_storage = malloc(sizeof(char) * get_line(buffer))))
+//            return (-1);
+        if (read_code == 0)
+            break;
+        if((slime = ft_strrchr(buffer, '\n')))
+        {
+            puts("there is \\n down here");
+            *slime = 0;
+
+        }
+
+        printf("read_code - %d\n", read_code);
+        if (!temp_storage)
+            temp_storage = strdup("\0");
         // printf("code - %d\n", get_line(buffer));
-        // printf("ch - %c\n", buffer[read_code - 1]);
-        
+
         temp_storage = ft_strjoin(temp_storage, buffer);
-        printf("(ts - %s\n)", temp_storage);
+        printf("(ts - %s)\n", temp_storage);
     }
-    free(buffer);
-    *line = append(temp_storage);
-    free(temp_storage);
+    *line = ft_strjoin(*line, temp_storage);
+    //free(temp_storage);
     return (1);
 }
+/*
+**Comment example norminette-ready
+**free(temp_storage);
+*/

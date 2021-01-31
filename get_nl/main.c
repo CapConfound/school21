@@ -5,10 +5,10 @@ int main(int argc, const char **argv) {
     (void) argv;
     int fd;
     int c;
-    char **line;
+    char *line;
     int i = 1;
     char *filename_str = (char *)argv[1];
-    
+
     c = 0;
     if ((fd = open(filename_str, O_RDONLY)) == -1)
     {
@@ -18,15 +18,18 @@ int main(int argc, const char **argv) {
     printf("here we go:\n--------\n");
     if (fd < 0)
         return (-1);
-    line = malloc(500*sizeof(char));
+    //line = malloc(500*sizeof(char));
     // while (c != -1)
-    for(int j = 0; j< 5; j++)
+    while((c = get_next_line(fd, &line)) && i < 10)
     {
-        printf("line %d:\n", i);
-        c = get_next_line(fd, line);
-        printf("\ngnl - %d\n", c);
+
+        printf("line #%d:\n", i);
+        printf("line itself - (%s)", line);
+        printf("gn - %d\n", c);
         i++;
     }
+    printf("gn - %d\n", c);
+    printf("--------\n");
 
     return (0);
 }
