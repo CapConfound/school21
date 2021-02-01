@@ -38,6 +38,38 @@ char    *ft_strjoin(char const *s1, char const *s2)
     return (res);
 }
 
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+{
+    size_t i;
+
+    i = 0;
+    if (!dest || !src)
+        return (0);
+    if (size == 0)
+        return (ft_strlen(src));
+    --size;
+    while (src[i] && i < size)
+    {
+        dest[i] = src[i];
+        i++;
+    }
+    dest[i] = '\0';
+    return (ft_strlen(src));
+}
+
+char	*ft_strdup(const char *str)
+{
+    char	*str1;
+    int		lenght;
+
+    lenght = ft_strlen(str);
+    str1 = NULL;
+    if ((!str) || (!(str1 = malloc(sizeof(char) * lenght + 1))))
+        return (NULL);
+    ft_strlcpy(str1, str, lenght + 1);
+    return (str1);
+}
+
 char    *ft_strrchr(const char *str, int c)
 {
     size_t            lenght;
@@ -57,4 +89,32 @@ char    *ft_strrchr(const char *str, int c)
         return ((char *)&str[lenght]);
     return (NULL);
 }
+void	*ft_bzero(void *s, size_t n)
+{
+    char			*sequence;
+    unsigned int	i;
 
+    sequence = (char *)s;
+    i = 0;
+    while (i < n)
+        sequence[i++] = 0;
+    return (sequence);
+}
+
+char	*ft_strchr(const char *str, int c)
+{
+    char	*p;
+
+    p = (char*)str;
+    if (*p == c)
+        return (p);
+    while (*p)
+    {
+        if (*p == c)
+            return (p);
+        p++;
+        if (*p == c)
+            return (p);
+    }
+    return (NULL);
+}
