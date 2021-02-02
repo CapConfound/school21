@@ -23,8 +23,8 @@ int main(int argc, const char **argv) {
     while((c = get_next_line(fd, &line)) && i < 10)
     {
 
-        printf("line #%d:\n", i);
-        printf("line itself - (%s)", line);
+        printf("line #%d: %s\n", i, line);
+
         printf("gn - %d\n", c);
         i++;
     }
