@@ -7,7 +7,7 @@
 #include <math.h>
 #include <util.h>
 #include <fcntl.h>
-//#define BUFFER_SIZE 42069
+//#define BUFFER_SIZE 1
 
 int		get_next_line(int fd, char **line);
 size_t	ft_strlen(const char *str);
@@ -17,5 +17,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *str);
 size_t	ft_strcpy(char *dest, const char *src);
+char	*ft_strrchr(const char *str, int c);
 
 #endif

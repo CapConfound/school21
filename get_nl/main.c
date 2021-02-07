@@ -20,15 +20,15 @@ int main(int argc, const char **argv) {
         return (-1);
     //line = malloc(500*sizeof(char));
     // while (c != -1)
-    while((c = get_next_line(fd, &line)) && i < 10)
+    while ((c = get_next_line(fd, &line)))
     {
 
         printf("line #%d: %s\n", i, line);
-
+//        free(line);
         printf("gn - %d\n", c);
         i++;
     }
-    printf("gn - %d\n", c);
+    printf("gnl - %d\nlast line: %s\n", c, line);
     printf("--------\n");
 
     return (0);

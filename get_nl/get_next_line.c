@@ -6,7 +6,7 @@
 /*   By: ilya <ilya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 22:17:08 by tmelina           #+#    #+#             */
-/*   Updated: 2021/02/02 23:14:54 by ilya             ###   ########.fr       */
+/*   Updated: 2021/02/03 20:07:27 by ilya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ char *ft_strinit(void)
 char *handle_leftover(char *leftovers, char **line)
 {
     char *nlpoint;
+    int i;
 
+    i = 0;
     nlpoint = NULL;
     if(leftovers)
     {
@@ -40,7 +42,10 @@ char *handle_leftover(char *leftovers, char **line)
             if(*leftovers == 0)
                 return (nlpoint);
             *line = ft_strdup(leftovers);
+            while (leftovers[i])
+                leftovers[i++] = '\0';
             free(leftovers);
+            return (0);
         }
     }
     else
@@ -49,33 +54,39 @@ char *handle_leftover(char *leftovers, char **line)
 }
 
 int     get_next_line(int fd, char **line) {
-    char buffer[BUFFER_SIZE + 1];
+    char *buffer;
     int read_code;
-    char *temp_storage;
     char *nlpoint;
     static char *leftovers;
 
     if (BUFFER_SIZE <= 0 || fd < 0)
         return (-1);
-
-    if(temp_storage)
-        temp_storage = ft_strinit();
+    if (!(buffer = malloc((sizeof(char) * BUFFER_SIZE) + 1)))
+        return (-1);
+    if (*line)
+        **line = 0;
     nlpoint = handle_leftover(leftovers, line);
     while (!nlpoint && (read_code = read(fd, buffer, BUFFER_SIZE)))
     {
         buffer[read_code] = 0;
+        //flag = handle_leftover(leftovers, line);
         if((nlpoint = ft_strchr(buffer, '\n')))
         {
             *nlpoint = 0;
             leftovers = ft_strdup(++nlpoint);
-            //printf("leftovers-%s", leftovers);
+            *line = ft_strjoin(*line, buffer);
+            //free(buffer);
+            *buffer = 0;
         }
-        if (!temp_storage)
-            temp_storage = ft_strdup("\0");
-        temp_storage = ft_strjoin(temp_storage, buffer);
+        else
+            *line = ft_strjoin(*line, buffer);
+        if (!ft_strrchr(*line, 0))
+            break ;
     }
-    *line = ft_strjoin(*line, temp_storage);
-    free(temp_storage);
+    //*line = ft_strjoin(*line, temp_storage);
+    //free(temp_storage);
+    if (read_code <= 0)
+        return (read_code);
     return ((read_code || ft_strlen(leftovers) || ft_strlen(*line)) ? 1 : 0);
 }
 /*
